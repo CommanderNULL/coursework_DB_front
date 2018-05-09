@@ -36,11 +36,21 @@
 		</div>
 	</div>
 	<div class = "info" style="display: none">
+		<div class="personal"></div>
 		<div id="film-list">
-			<ul>
-				<li v-for="film in films" class="filmListItem">{{ film.TITLE }}</li>
-			</ul>
+			<div class="list-group">
+				<!-- <li v-for="film in films" class="list-group-item">{{ film.TITLE }}, {{film.ROLE}}</li> -->
+				<div v-for="film in films" href="#" class="list-group-item flex-column align-items-start">
+   				 	<div class="d-flex w-100 justify-content-between">
+     					 <h5 class="mb-1">{{ film.TITLE }}</h5>
+     					 <small>{{film.RELEASE_DATE}}</small>
+    				 </div>
+    					<p class="mb-1">{{film.ROLE}}</p>
+  				</div>
+			</div>
 		</div>
+
+		<a href="#" class="btn btn-primary" onclick="showAll()">Назад</a>
 	</div>
 	</div>
 	

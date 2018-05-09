@@ -3,9 +3,9 @@ $(async function () {
 	let a = await getSmth();
 	actors = parseResults(a);
 	var filmListPanel = $('#film-list');
-	actors.forEach((item)=>{
+	actors.forEach((item) => {
 		filmListPanel.append(generateCard(item));
-		});
+	});
 });
 
 function generateCard(actor) {
@@ -24,17 +24,16 @@ function generateInfo(actor) {
 	<div class="panel">
 	<h3>` + actor.NAME + ' ' + actor.SURNAME + `</h3>
 	<hr>
-	<p>Дата рождения: `+ actor.DOB.split('T')[0] +`
+	<p>Дата рождения: `+ actor.DOB +`
 	<br>
 	Список ролей:
 	</p>
-	<a href="#" class="btn btn-primary" onclick="showAll()">Go back</a>
 	</div>`;
 	return template
 }
 
 var filmList = new Vue({
-	el: '#film-list',
+	el: '.main-cont',
 	data: {
 		films: [],
 	}
@@ -90,10 +89,9 @@ function showInfo(id_h) {
 	actors.forEach(async (actor)=>{
 		if(actor.ID_HUMAN.toString() == id_h.toString()) {
 			$('.all').hide();
-			$('.info').html(generateInfo(actor));
+			$('.personal').html(generateInfo(actor));
 			$('.info').show();
 			const a = await getInfoFilms(actor.ID_HUMAN);
-			console.log('a = '+ a );
 			filmList.films = parseResults(a);
 		}
 	});
@@ -101,6 +99,6 @@ function showInfo(id_h) {
 
 function showAll() {
 			$('.all').show();
-			$('.info').html('');
+			$('.personal').html('');
 			$('.info').hide();
 }

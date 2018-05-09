@@ -33,9 +33,22 @@
 			<h2>Список фильмов в базе:</h2>
 			<div class="film-list" id = "film-list"></div>
 		</div>
-		<div class="info" style="display: none">
-			
+		<div class = "info" style="display: none">
+		<div class="about"></div>
+		<div id="film-list">
+			<div class="list-group">
+				<div v-for="item in reviews" href="#" class="list-group-item flex-column align-items-start">
+   				 	<div class="d-flex w-100 justify-content-between">
+     					 <h5 class="mb-1">Гость</h5>
+    				 </div>
+    				 <cite>{{ item.REVIEW_TEXT }}</cite>
+    				 <div class="rating">Оценка: <span>{{item.MARK}}/10</span></div>
+  				</div>
+			</div>
 		</div>
+		<p v-if="reviews.length == 0">На этот фильм еще не добавили отзывов...</p>
+		<a href="#" class="btn btn-primary" onclick="showAll()">Назад</a>
+	</div>
 	</div>
 	
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
