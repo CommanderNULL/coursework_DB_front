@@ -1,0 +1,42 @@
+.main-cont {
+	background-color: #FFFFFF;
+}
+
+body {
+	background-color: #F0F2F5;
+}
+
+.jumbotron {
+	background-color: #4285F4;
+	box-shadow: 0 0 15px 0 black;
+}
+
+.card {
+	display: block;
+	margin: 10px 10px;
+	flex-basis: 400px;
+}
+
+.card-title {
+	font: 100 19px/1 'Helvetica';
+}
+
+.film-list {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+.active {
+	background-color: rgb(160, 196, 255);
+	border-radius: 5px;
+}
+
+.navigation {
+	margin-bottom: 15px;
+}
+
+.info {
+	padding: 5px;
+}

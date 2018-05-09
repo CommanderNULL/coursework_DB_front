@@ -1,0 +1,45 @@
+<DOCTYPE HTML!>
+<html>
+	<head>
+		<title>КИНОПОИСК</title>
+		<meta charset="utf-8">
+		<script
+  		src="https://code.jquery.com/jquery-3.3.1.js"
+  		integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  		crossorigin="anonymous">
+  		</script>
+  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+<body>
+	<div class="jumbotron">
+	<h1>КИНОПОИСК</h1>
+	</div>
+	<div class="container-fluid navigation">
+		<ul class="nav justify-content-center">
+		  <li class="nav-item">
+		  	<a class="nav-link active" href="#">Фильмы</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="actors.html">Актеры</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="#">Оскары</a>
+		  </li>
+		</ul>
+	</div>
+	<div class="container main-cont">
+		<div class= "all">
+			<h2>Список фильмов в базе:</h2>
+			<div class="film-list" id = "film-list"></div>
+		</div>
+		<div class="info" style="display: none">
+			
+		</div>
+	</div>
+	
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="main.js"></script>
+</body>
+</html>
