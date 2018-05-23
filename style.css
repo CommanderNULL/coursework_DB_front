@@ -45,6 +45,7 @@ body {
 
 .list-group {
 	margin: 5px auto 10px auto;
+	
 }
 
 .list-group-item {
@@ -64,6 +65,25 @@ body {
 span {
 	font: 900 15px/1 'Helvetica';
 }
+
 .rating {
 	float: right;
+}
+
+textarea {
+	margin-bottom: 5px;
+}
+
+.revs {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.reviews {
+	flex-basis: 400px;
+}
+
+.top-critics {
+	flex-basis:  400px;
 }

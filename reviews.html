@@ -1,0 +1,72 @@
+<DOCTYPE HTML!>
+<html>
+	<head>
+		<title>КИНОПОИСК</title>
+		<meta charset="utf-8">
+		<script
+  		src="https://code.jquery.com/jquery-3.3.1.js"
+  		integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  		crossorigin="anonymous">
+  		</script>
+  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+<body>
+	<div class="jumbotron">
+	<h1>КИНОПОИСК</h1>
+	</div>
+	<div class="container-fluid navigation">
+		<ul class="nav justify-content-center">
+		  <li class="nav-item">
+		  	<a class="nav-link " href="index.html">Фильмы</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="actors.html">Актеры</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link active" href="#">Отзывы</a>
+		  </li>
+		  <li>
+		  	<a class="nav-link" href="facts.html">Интересные факты</a>
+		  </li>
+		  <li>
+		  	<a class="nav-link" href="oscars.html">Оскары</a>
+		  </li>
+		</ul>
+	</div>
+	<div class="container main-cont">
+		<div class="revs">
+			<div class="reviews">
+				<h2>Все отзывы пользователей:</h2>
+				<div class="list-group">
+					<div v-for="item in reviews" href="#" class="list-group-item flex-column align-items-start">
+	   				 	<div class="d-flex w-100 justify-content-between">
+	     					 <h5 class="mb-1">{{item.SURNAME}} {{item.NAME}}</h5>   <strong> {{item.TITLE}}</strong>
+	    				 </div>
+	    				 <cite>{{ item.REVIEW_TEXT }}</cite>
+	    				 <div class="rating">Оценка: <span>{{item.MARK}}/10</span></div>
+	  				</div>
+				</div>
+			</div>
+			<div class="top-critics">
+				<h2>Самые злобные критики</h2>
+				<div class="list-group">
+					<div v-for="item in topCritics" href="#" class="list-group-item flex-column align-items-start">
+	   				 	<div class="d-flex w-100 justify-content-between">
+	     					 <h5 class="mb-1">{{item.SURNAME}} {{item.NAME}}</h5> 
+	    				 </div>
+	    				 <div class="rating">Средняя оценка: <span>{{item.AVEMARK}} из 10</span></div>
+	  				</div>
+				</div>
+			</div>
+		</div>
+
+		
+		
+	</div>
+	
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="reviews.js"></script>
+</body>
+</html>

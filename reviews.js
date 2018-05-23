@@ -2,12 +2,15 @@ var queryResult;
 $(async function () {
 	const a = await getSmth();
 	const b = parseResults(a);
-	const c = generatePage(b);
+	//const c = generatePage(b);
+	app1.reviews = b;
+	const c = await getCritics();
+	const d = parseResults(c);
+	app1.topCritics = d;
 	queryResult = b;
 });
 
 function generatePage(queryResult){
-
 	var filmListPanel = $('#film-list');
 	queryResult.forEach((item)=>{
 		filmListPanel.append(generateCard(item.TITLE,
@@ -40,11 +43,11 @@ function generateInfo(title, year, director) {
 }
 
 async function getSmth() {
-	console.log("Выполняем запрос к films");
+	console.log("Выполняем запрос к reviews");
 	// 1. Создаём новый объект XMLHttpRequest
 	var xhr = new XMLHttpRequest();
 	// 2. Конфигурируем его: GET-запрос на URL 'phones.json'
-	xhr.open('GET', 'http://localhost:8020', false);
+	xhr.open('GET', 'http://localhost:8020/reviews', false);
 	// 3. Отсылаем запрос
 	xhr.send();
 	// 4. Если код ответа сервера не 200, то это ошибка
@@ -64,68 +67,63 @@ function parseResults(responseText) {
 	return decodedData;
 }
 
-function showInfo(filmTitle) {
-	queryResult.forEach(async (film)=>{
-		if(film.TITLE === filmTitle) {
-			$('.all').hide();
-			$('.about').html(generateInfo(film.TITLE, film.RELEASE_DATE,film.DIRECTOR));
-			$('.info').show();
-			const a = await getReviews(film.ID_FILM);
-			app1.yourReview.film_id = film.ID_FILM;
-			app1.reviews = parseResults(a);
-		}
-	});
-}
+// function showInfo(filmTitle) {
+// 	queryResult.forEach(async (film)=>{
+// 		if(film.TITLE === filmTitle) {
+// 			$('.all').hide();
+// 			$('.about').html(generateInfo(film.TITLE, film.RELEASE_DATE,film.DIRECTOR));
+// 			$('.info').show();
+// 			const a = await getReviews(film.ID_FILM);
+// 			app1.yourReview.film_id = film.ID_FILM;
+// 			app1.reviews = parseResults(a);
+// 		}
+// 	});
+// }
 
-function showAll() {
-			$('.all').show();
-			$('.personal').html('');
-			$('.info').hide();
-			app1.yourReview.film_id = 1;
-}
+// function showAll() {
+// 			$('.all').show();
+// 			$('.personal').html('');
+// 			$('.info').hide();
+// 			app1.yourReview.film_id = 1;
+// }
 
 var app1 = new Vue({
-	el: '.info',
+	el: '.main-cont',
 	data: {
 		reviews: [],
-		yourReview: {
-			reviewText: '',
-			reviewMark: 0,
-			user_id: 8,
-			film_id: 1,
-		}
+		topCritics: [],
 	}
 });
 
-function submitReview() {
-	console.log("Отправляем отзыв");
-	// 1. Создаём новый объект XMLHttpRequest
-	var xhr = new XMLHttpRequest();
-	// 2. Конфигурируем его
-	xhr.open('POST', 'http://localhost:8020/films/add_review', false);
-	// 3. Отсылаем запрос
-	//xhr.setRequestHeader("Content-type", "application/json");
-	xhr.send(JSON.stringify(app1.yourReview));
-	// 4. Если код ответа сервера не 200, то это ошибка
-	if (xhr.status != 200) {
-	  // обработать ошибку
-	  alert('Ошибка!');
-	  return 1; 
-	} else {
-	  // вывести результат
-	  if(xhr.responseText == 'SUCCESS!') {
-	  	alert('Добавлено успешно!');
-	  }
-	  return xhr.responseText; 
-	}
-}
+// function submitReview() {
+// 	console.log("Отправляем отзыв");
+// 	// 1. Создаём новый объект XMLHttpRequest
+// 	var xhr = new XMLHttpRequest();
+// 	// 2. Конфигурируем его
+// 	xhr.open('get', 'http://localhost:8020/reviews', false);
+// 	// 3. Отсылаем запрос
+// 	//xhr.setRequestHeader("Content-type", "application/json");
+// 	xhr.send();
+// 	// 4. Если код ответа сервера не 200, то это ошибка
+// 	if (xhr.status != 200) {
+// 	  // обработать ошибку
+// 	  alert('Ошибка!');
+// 	  return 1; 
+// 	} else {
+// 	  // вывести результат
+// 	  if(xhr.responseText == 'SUCCESS!') {
+	
+// 	  }
+// 	  return xhr.responseText; 
+// 	}
+// }
 
-async function getReviews(id_f) {
+async function getCritics() {
 	console.log("Выполняем запрос к отзывам");
 	// 1. Создаём новый объект XMLHttpRequest
 	var xhr = new XMLHttpRequest();
 	// 2. Конфигурируем его: GET-запрос
-	xhr.open('GET', 'http://localhost:8020/films/info_review/'+id_f, false);
+	xhr.open('GET', 'http://localhost:8020/reviews/top', false);
 	// 3. Отсылаем запрос
 	xhr.send();
 	// 4. Если код ответа сервера не 200, то это ошибка

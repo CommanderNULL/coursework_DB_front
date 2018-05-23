@@ -1,0 +1,70 @@
+<DOCTYPE HTML!>
+<html>
+	<head>
+		<title>КИНОПОИСК</title>
+		<meta charset="utf-8">
+		<script
+  		src="https://code.jquery.com/jquery-3.3.1.js"
+  		integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  		crossorigin="anonymous">
+  		</script>
+  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+<body>
+	<div class="jumbotron">
+	<h1>КИНОПОИСК</h1>
+	</div>
+	<div class="container-fluid navigation">
+		<ul class="nav justify-content-center">
+		  <li class="nav-item">
+		  	<a class="nav-link " href="index.html">Фильмы</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="actors.html">Актеры</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="#">Отзывы</a>
+		  </li>
+		  <li>
+		  	<a class="nav-link" href="facts.html">Интересные факты</a>
+		  </li>
+		  <li>
+		  	<a class="nav-link active" href="oscars.html">Оскары</a>
+		  </li>
+		</ul>
+	</div>
+	<div class="container main-cont">
+		<div class="revs">
+			<div class="reviews">
+				<h2>Оскары:</h2>
+				<div class="dropdown">
+				  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				    Выбор категории
+				  </button>
+				  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				    <a class="dropdown-item" href="#" onclick="catChanged(2)">Лучшая мужская роль</a>
+				    <a class="dropdown-item" href="#" onclick="catChanged(3)">Лучшая роль второго плана</a>
+				  </div>
+				</div>
+				<div class="list-group">
+					<div v-for="oscar in oscars" href="#" class="list-group-item flex-column align-items-start">
+	   				 	<div class="d-flex w-100 justify-content-between">
+	     					 <h5 class="mb-1">{{oscar.SURNAME}} {{oscar.NAME}}</h5> 
+	     					 <p>Получил {{oscar.CNT}}</p>
+	    				 </div>
+	  				</div>
+				</div>
+			</div>
+		</div>
+
+		
+		
+	</div>
+	
+	<script src="https://unpkg.com/popper.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="oscars.js"></script>
+</body>
+</html>

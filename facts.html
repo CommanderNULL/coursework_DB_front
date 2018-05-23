@@ -18,50 +18,39 @@
 	<div class="container-fluid navigation">
 		<ul class="nav justify-content-center">
 		  <li class="nav-item">
-		  	<a class="nav-link active" href="#">Фильмы</a>
+		  	<a class="nav-link" href="index.html">Фильмы</a>
 		  </li>
 		  <li class="nav-item">
-		    <a class="nav-link" href="actors.html">Актеры</a>
+		    <a class="nav-link" href="#">Актеры</a>
 		  </li>
 		  <li class="nav-item">
 		    <a class="nav-link" href="reviews.html">Отзывы</a>
 		  </li>
 		  <li>
-		  	<a class="nav-link" href="facts.html">Интересные факты</a>
+		  	<a class="nav-link active" href="facts.html">Интересные факты</a>
+		  </li>
+		  <li>
+		  	<a class="nav-link" href="oscars.html">Оскары</a>
 		  </li>
 		</ul>
 	</div>
 	<div class="container main-cont">
 		<div class= "all">
-			<h2>Список фильмов в базе:</h2>
-			<div class="film-list" id = "film-list"></div>
-		</div>
-		<div class = "info" style="display: none">
-		<div class="about"></div>
-		<div id="film-list">
+			<h2>Все отзывы пользователей:</h2>
 			<div class="list-group">
-				<div class="list-group-item flex-column align-items-start">
-					<h4>Добавьте свой отзыв!</h4>
-					<TEXTAREA placeholder="Введите здесь отзыв..." v-model="yourReview.reviewText" cols="50"></TEXTAREA>
-					<input type="number" name="ocenka" placeholder="Ваша оценка" min="0" max="10" v-model="yourReview.reviewMark"> 
-					<button class="btn btn-primary" onclick="submitReview()">Отправить</button>
-				</div>
 				<div v-for="item in reviews" href="#" class="list-group-item flex-column align-items-start">
    				 	<div class="d-flex w-100 justify-content-between">
-     					 <h5 class="mb-1">{{ item.SURNAME }} {{item.NAME}}</h5>
+     					 <h5 class="mb-1">{{item.SURNAME}} {{item.NAME}}</h5>   <strong> {{item.TITLE}}</strong>
     				 </div>
     				 <cite>{{ item.REVIEW_TEXT }}</cite>
     				 <div class="rating">Оценка: <span>{{item.MARK}}/10</span></div>
   				</div>
-			</div>
 		</div>
-		<p v-if="reviews.length == 0">На этот фильм еще не добавили отзывов...</p>
-		<a href="#" class="btn btn-primary" onclick="showAll()">Назад</a>
-	</div>
+		</div>
 	</div>
 	
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="main.js"></script>
+	<script type="text/javascript" src="facts.js"></script>
 </body>
 </html>

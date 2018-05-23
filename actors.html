@@ -24,7 +24,13 @@
 		    <a class="nav-link active" href="#">Актеры</a>
 		  </li>
 		  <li class="nav-item">
-		    <a class="nav-link" href="#">Оскары</a>
+		    <a class="nav-link" href="reviews.html">Отзывы</a>
+		  </li>
+		  <li>
+		  	<a class="nav-link" href="facts.html">Интересные факты</a>
+		  </li>
+		  <li>
+		  	<a class="nav-link" href="oscars.html">Оскары</a>
 		  </li>
 		</ul>
 	</div>
@@ -34,18 +40,27 @@
 		<div class="film-list" id = "film-list">
 		
 		</div>
+		<hr>
+		<h5>Актеры, снимавшиеся  у режиссеров, чьи фильмы получили больше 3 оскаров</h5>
+		<div class="list-group">
+			<div v-for="actor in actorsTop" href="#" class="list-group-item flex-column align-items-start">
+				<div class="d-flex w-100 justify-content-between">
+					<h5 class="mb-1">{{ actor.SURNAME }} {{ actor.NAME}}</h5> 
+				</div>
+			</div>
+		</div>
 	</div>
 	<div class = "info" style="display: none">
 		<div class="personal"></div>
 		<div id="film-list">
 			<div class="list-group">
-				<!-- <li v-for="film in films" class="list-group-item">{{ film.TITLE }}, {{film.ROLE}}</li> -->
 				<div v-for="film in films" href="#" class="list-group-item flex-column align-items-start">
    				 	<div class="d-flex w-100 justify-content-between">
-     					 <h5 class="mb-1">{{ film.TITLE }}</h5>
+     					 <h5 class="mb-1">{{ film.TITLE }}</h5> 
      					 <small>{{film.RELEASE_DATE}}</small>
     				 </div>
     					<p class="mb-1">{{film.ROLE}}</p>
+    					<small class="mb-1" v-if="film.DESCRIPTION!==null">Награды: {{film.DESCRIPTION}}</small>
   				</div>
 			</div>
 		</div>
